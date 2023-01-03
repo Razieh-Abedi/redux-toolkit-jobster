@@ -2,7 +2,54 @@ import React from 'react'
 
 function Register() {
   return (
-    <div>Register</div>
+    <div>Register
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h1>test</h1>
+    </div>
   )
 }
 
