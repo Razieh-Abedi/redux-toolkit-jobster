@@ -14,6 +14,10 @@ const initialState = {
 function Register() {
   const [userInfo, setUserInfo] = useState(initialState);
 
+  const toggleMember = () => {
+    setUserInfo({ ...userInfo, isMember: !userInfo.isMember });
+  };
+
   const handleChange = (e) => {
     console.log(e.target);
   };
@@ -27,14 +31,17 @@ function Register() {
     <Wrapper className="full-page">
       <form onSubmit={handleSubmit} className="form">
         <Logo />
-        <h3>login</h3>
+        <h3>{userInfo.isMember ? "Login" : "Register"}</h3>
         {/* name field */}
-        <FormRow
-          name="name"
-          type="text"
-          value={userInfo.name}
-          handleChange={handleChange}
-        />
+        {!userInfo.isMember && (
+          <FormRow
+            name="name"
+            type="text"
+            value={userInfo.name}
+            handleChange={handleChange}
+          />
+        )}
+
         {/* email */}
         <FormRow
           name="email"
@@ -52,6 +59,12 @@ function Register() {
         <button type="submit" className="btn btn-block">
           submit
         </button>
+        <p>
+          {userInfo.isMember ? "Not a member yet?" : "Already a member?"}
+          <button className="member-btn" type="button" onClick={toggleMember}>
+            {userInfo.isMember ? "Register" : "Login"}
+          </button>
+        </p>
       </form>
     </Wrapper>
   );
