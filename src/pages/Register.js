@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Wrapper from "../assets/wrappers/RegisterPage";
-import {Logo} from "../components";
+import { Logo, FormRow } from "../components";
 //import redux toolkit
 //import useNavigator
 
@@ -29,44 +29,26 @@ function Register() {
         <Logo />
         <h3>login</h3>
         {/* name field */}
-        <div className="form-row">
-          <label className="form-label" htmlFor="name">
-            name
-          </label>
-          <input
-            className="form-input"
-            name="name"
-            type="text"
-            value={userInfo.name}
-            onChange={handleChange}
-          />
-        </div>
+        <FormRow
+          name="name"
+          type="text"
+          value={userInfo.name}
+          handleChange={handleChange}
+        />
         {/* email */}
-        <div className="form-row">
-          <label className="form-label" htmlFor="email">
-            email
-          </label>
-          <input
-            type="email"
-            name="email"
-            value={userInfo.email}
-            onChange={handleChange}
-            className="form-input"
-          />
-        </div>
+        <FormRow
+          name="email"
+          type="email"
+          value={userInfo.email}
+          handleChange={handleChange}
+        />
         {/* password */}
-        <div className="form-row">
-          <label className="form-label" htmlFor="password">
-            password
-          </label>
-          <input
-            type="password"
-            value={userInfo.password}
-            onChange={handleChange}
-            name="password"
-            className="form-input"
-          />
-        </div>
+        <FormRow
+          name="password"
+          type="password"
+          value={userInfo.password}
+          handleChange={handleChange}
+        />
         <button type="submit" className="btn btn-block">
           submit
         </button>
