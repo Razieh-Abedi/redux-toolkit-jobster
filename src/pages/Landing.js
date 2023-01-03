@@ -1,13 +1,14 @@
 import React from "react";
-import logo from "../assets/images/logo.svg";
+import { Logo } from "../components";
 import main from "../assets/images/main.svg";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 function Landing() {
   return (
     <Wrapper>
       <nav>
-        <img src={logo} alt="jobster logo" className="logo" />
+        <Logo />
       </nav>
       <div className="container page">
         <div className="info">
@@ -19,9 +20,9 @@ function Landing() {
             fixie raclette taxidermy craft beer. Brunch bitters synth, VHS
             crucifix heirloom meggings bicycle rights.
           </p>
-          <button type="button" className="btn btn-hero">
+          <Link to="/" className="btn btn-hero">
             login/register
-          </button>
+          </Link>
         </div>
         <img src={main} alt="main" className="img main-img" />
       </div>
