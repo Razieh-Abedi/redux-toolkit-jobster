@@ -19,12 +19,19 @@ function Register() {
   };
 
   const handleChange = (e) => {
-    console.log(e.target);
+    const name = e.target.name;
+    const value = e.target.value;
+    // change object keys dynamically with bracket notations in an object
+    setUserInfo({ ...userInfo, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
+    const { name, email, password, isMember } = userInfo;
+    // the paranthesis: if isMemeber is false, only then check for the name
+    if (!email || !password || (!isMember && !name)) {
+      console.log("Please fill out the empty fileds!");
+    }
   };
 
   return (
