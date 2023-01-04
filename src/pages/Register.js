@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Wrapper from "../assets/wrappers/RegisterPage";
 import { Logo, FormRow } from "../components";
+import { toast } from "react-toastify";
 //import redux toolkit
 //import useNavigator
 
@@ -30,7 +31,7 @@ function Register() {
     const { name, email, password, isMember } = userInfo;
     // the paranthesis: if isMemeber is false, only then check for the name
     if (!email || !password || (!isMember && !name)) {
-      console.log("Please fill out the empty fileds!");
+      toast.error("Please fill out all the fields!");
     }
   };
 
