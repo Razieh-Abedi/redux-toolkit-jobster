@@ -4,8 +4,7 @@ import { Logo, FormRow } from "../components";
 import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
 import { registerUser, loginUser } from "../features/user/userSlice";
-//import redux toolkit
-//import useNavigator
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   name: "",
@@ -18,6 +17,15 @@ function Register() {
   const dispatch = useDispatch();
   const { isLoading, user } = useSelector((store) => store.user);
   const [userInfo, setUserInfo] = useState(initialState);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+    }
+  }, [user, navigate]);
 
   const toggleMember = () => {
     setUserInfo({ ...userInfo, isMember: !userInfo.isMember });
