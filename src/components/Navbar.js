@@ -9,6 +9,7 @@ import { toggleSidebar } from "../features/user/userSlice";
 function Navbar() {
   const dispatch = useDispatch();
   const { user } = useSelector((store) => store.user);
+  const [showLogout, setShowLogout] = useState(false);
 
   const toggle = () => {
     dispatch(toggleSidebar());
@@ -28,13 +29,13 @@ function Navbar() {
           <button
             type="button"
             className="btn"
-            onClick={() => console.log("toggle logout btn")}
+            onClick={() => setShowLogout(!showLogout)}
           >
             <FaUserCircle />
             {user && user.name}
             <FaCaretDown />
           </button>
-          <div className="dropdown show-dropdown">
+          <div className={showLogout ? "dropdown show-dropdown" : "dropdown"}>
             <button
               type="button"
               className="dropdown-btn"
