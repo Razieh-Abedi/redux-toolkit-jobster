@@ -2,6 +2,7 @@ import React from "react";
 import { BigSidebar, SmallSidebar, Navbar } from "../../components";
 import Wrapper from "../../assets/wrappers/SharedLayout";
 import { Outlet } from "react-router-dom";
+import Profile from "./Profile";
 
 function SharedLayout() {
   return (
@@ -12,7 +13,8 @@ function SharedLayout() {
         <div>
           <Navbar />
           <div className="dashboard-page">
-            <Outlet />
+            {/* <Outlet /> */}
+            <Profile/>
           </div>
         </div>
       </main>
