@@ -10,7 +10,7 @@ function NavLinks({ toggle }) {
         const { id, path, text, icon } = link;
         return (
           <NavLink
-            path={path}
+            to={path}
             key={id}
             onClick={toggle}
             className={({ isActive }) =>
