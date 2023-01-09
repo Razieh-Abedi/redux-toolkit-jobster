@@ -1783,6 +1783,7 @@ return (
     </label>
     <select
       name="status"
+      id="status"
       value={status}
       onChange={handleJobInput}
       className="form-select"
