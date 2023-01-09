@@ -4,7 +4,11 @@ import Wrapper from "../../assets/wrappers/DashboardFormPage";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { FormRowSelect } from "../../components";
-import { handleChange, clearValues } from "../../features/job/jobSlice";
+import {
+  handleChange,
+  clearValues,
+  createJob,
+} from "../../features/job/jobSlice";
 
 function AddJob() {
   const dispatch = useDispatch();
@@ -27,6 +31,7 @@ function AddJob() {
       toast.error("Please fill out all the fields!");
       return;
     }
+    dispatch(createJob({ position, company, jobLocation, jobType, status }));
   };
 
   const handleJobInput = (e) => {
