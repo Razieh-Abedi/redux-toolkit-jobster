@@ -8,6 +8,7 @@ import {
   handleChange,
   clearValues,
   createJob,
+  editJob,
 } from "../../features/job/jobSlice";
 
 function AddJob() {
@@ -30,6 +31,15 @@ function AddJob() {
     e.preventDefault();
     if (!position || !company || !jobLocation) {
       toast.error("Please fill out all the fields!");
+      return;
+    }
+    if (isEditing) {
+      dispatch(
+        editJob({
+          jobId: editJobID,
+          job: { position, company, jobLocation, jobType, status },
+        })
+      );
       return;
     }
     dispatch(createJob({ position, company, jobLocation, jobType, status }));
