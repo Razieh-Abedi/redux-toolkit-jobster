@@ -11,7 +11,8 @@ import NavLinks from "./NavLinks";
 import SearchContainer from "./SearchContainer";
 import SmallSidebar from "./SmallSidebar";
 import StatsContainer from "./StatsContainer";
-
+import AreaChart from "./AreaChart";
+import BarChart from "./BarChart";
 export {
   Logo,
   FormRow,
@@ -26,4 +27,6 @@ export {
   Loading,
   StatsContainer,
   ChartsContainer,
+  AreaChart,
+  BarChart,
 };
