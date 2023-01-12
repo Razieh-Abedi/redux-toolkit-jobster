@@ -2,6 +2,7 @@ import React from "react";
 import { FormRow, FormRowSelect } from "../components";
 import Wrapper from "../assets/wrappers/SearchContainer";
 import { useDispatch, useSelector } from "react-redux";
+import { handleChange, clearFilters } from "../features/allJobs/allJobsSlice";
 
 function SearchContainer() {
   const dispatch = useDispatch();
@@ -10,11 +11,15 @@ function SearchContainer() {
   const { jobTypeOptions, statusOptions } = useSelector((store) => store.job);
 
   const handleSearch = (e) => {
-    console.log("searching");
+    // if (isLoading) {
+    //   return;
+    // }
+    dispatch(handleChange({ name: e.target.name, value: e.target.value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(clearFilters());
   };
 
   return (
@@ -47,10 +52,9 @@ function SearchContainer() {
           />
           {/* sort */}
           <FormRowSelect
-            labelText="Sort"
             name="sort"
             value={sort}
-            list={[...sortOptions]}
+            list={sortOptions}
             handleChange={handleSearch}
           />
           <button
