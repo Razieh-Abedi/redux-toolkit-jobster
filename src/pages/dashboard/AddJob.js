@@ -23,7 +23,7 @@ function AddJob() {
     jobType,
     jobTypeOptions,
     statusOptions,
-    editJobID,
+    editJobId,
   } = useSelector((store) => store.job);
   const { user } = useSelector((store) => store.user);
 
@@ -36,7 +36,7 @@ function AddJob() {
     if (isEditing) {
       dispatch(
         editJob({
-          jobId: editJobID,
+          jobId: editJobId,
           job: { position, company, jobLocation, jobType, status },
         })
       );
