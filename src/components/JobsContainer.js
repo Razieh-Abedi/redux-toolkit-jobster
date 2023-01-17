@@ -6,13 +6,22 @@ import { getAllJobs } from "../features/allJobs/allJobsSlice";
 
 function JobsContainer() {
   const dispatch = useDispatch();
-  const { isLoading, jobs, page, totalJobs, numOfPages } = useSelector(
-    (store) => store.allJobs
-  );
+  const {
+    isLoading,
+    jobs,
+    page,
+    totalJobs,
+    numOfPages,
+    search,
+    searchStatus,
+    searchType,
+    sort,
+  } = useSelector((store) => store.allJobs);
 
   useEffect(() => {
     dispatch(getAllJobs());
-  }, []);
+    // eslint-disable-next-line
+  }, [search, page, searchStatus, searchType, sort]);
 
   if (isLoading) {
     return <Loading center />;
