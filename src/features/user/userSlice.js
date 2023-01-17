@@ -1,6 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import customFetch from "../../utils/axios";
+import {
+  registerUserThunk,
+  loginUserThunk,
+  updateUserThunk,
+  clearStoreThunk,
+} from "../user/userThunk";
 import {
   addUserToLocalStorage,
   getUserFromLocalStorage,
@@ -15,47 +20,14 @@ const initialState = {
 
 export const registerUser = createAsyncThunk(
   "user/registerUser",
-  async (user, thunkAPI) => {
-    try {
-      const resp = await customFetch.post("/auth/register", user);
-      return resp.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.msg);
-    }
-  }
+  registerUserThunk
 );
 
-export const loginUser = createAsyncThunk(
-  "user/loginUser",
-  async (user, thunkAPI) => {
-    try {
-      const resp = await customFetch.post("/auth/login", user);
-      return resp.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.msg);
-    }
-  }
-);
+export const loginUser = createAsyncThunk("user/loginUser", loginUserThunk);
 
-export const updateUser = createAsyncThunk(
-  "user/updateUser",
-  async (user, thunkAPI) => {
-    try {
-      const resp = await customFetch.patch("/auth/updateUser", user, {
-        headers: {
-          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
-        },
-      });
-      return resp.data;
-    } catch (error) {
-      if (error.response.status === 401) {
-        thunkAPI.dispatch(logoutUser());
-        return thunkAPI.rejectWithValue("Unauthorized user! Logging out...");
-      }
-      return thunkAPI.rejectWithValue(error.response.data.msg);
-    }
-  }
-);
+export const updateUser = createAsyncThunk("user/updateUser", updateUserThunk);
+
+export const clearStore = createAsyncThunk("user/clearStore", clearStoreThunk);
 
 const userSlice = createSlice({
   name: "user",
@@ -116,6 +88,9 @@ const userSlice = createSlice({
       .addCase(updateUser.rejected, (state, { payload }) => {
         state.isLoading = false;
         toast.error(payload);
+      })
+      .addCase(clearStore.rejected, () => {
+        toast.error("There was an error!");
       });
   },
 });

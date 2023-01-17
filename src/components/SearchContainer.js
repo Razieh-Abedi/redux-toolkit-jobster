@@ -11,9 +11,9 @@ function SearchContainer() {
   const { jobTypeOptions, statusOptions } = useSelector((store) => store.job);
 
   const handleSearch = (e) => {
-    // if (isLoading) {
-    //   return;
-    // }
+    if (isLoading) {
+      return;
+    }
     dispatch(handleChange({ name: e.target.name, value: e.target.value }));
   };
 

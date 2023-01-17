@@ -20,8 +20,8 @@ function Landing() {
             fixie raclette taxidermy craft beer. Brunch bitters synth, VHS
             crucifix heirloom meggings bicycle rights.
           </p>
-          <Link to="/" className="btn btn-hero">
-            login/register
+          <Link to="/register" className="btn btn-hero">
+            Login/Register
           </Link>
         </div>
         <img src={main} alt="main" className="img main-img" />
