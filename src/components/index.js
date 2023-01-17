@@ -13,6 +13,8 @@ import SmallSidebar from "./SmallSidebar";
 import StatsContainer from "./StatsContainer";
 import AreaChartComponent from "./AreaChartComponent";
 import  BarChartComponent from "./BarChartComponent";
+import PageBtnContainer from "./PageBtnContainer";
+
 export {
   Logo,
   FormRow,
@@ -29,4 +31,5 @@ export {
   ChartsContainer,
   AreaChartComponent,
   BarChartComponent,
+  PageBtnContainer,
 };
