@@ -14,7 +14,7 @@ import StatsContainer from "./StatsContainer";
 import AreaChartComponent from "./AreaChartComponent";
 import  BarChartComponent from "./BarChartComponent";
 import PageBtnContainer from "./PageBtnContainer";
-
+import Footer from "./Footer"
 export {
   Logo,
   FormRow,
@@ -32,4 +32,5 @@ export {
   AreaChartComponent,
   BarChartComponent,
   PageBtnContainer,
+  Footer,
 };

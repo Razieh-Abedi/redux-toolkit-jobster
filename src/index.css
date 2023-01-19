@@ -324,3 +324,14 @@ ul {
 .Toastify__toast {
   text-transform: capitalize;
 }
+.footer {
+  /* position: fixed; */
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  height: 2rem;
+}
+.footer a {
+  text-decoration: none;
+  color: black;
+}

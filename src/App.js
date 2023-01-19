@@ -1,5 +1,6 @@
 import { Error, Register, Landing, ProtectedRoute } from "./pages";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Footer } from "./components";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -31,6 +32,7 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="*" element={<Error />} />
       </Routes>
+     <Footer/>
       <ToastContainer position="top-center" />
     </BrowserRouter>
   );
